@@ -17,7 +17,6 @@ def print_screen(man, word, letters_chosen):
   print(print_letters_chosen)
 
 def guess(man, print_word, word, letters_chosen):
-  alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
   while True:
     print_screen(man, print_word, letters_chosen)
     guess_word = input().lower()
@@ -27,7 +26,7 @@ def guess(man, print_word, word, letters_chosen):
       print("Try a word that's the same length as this one")
       sleep(2)
       continue
-    elif guess_word not in alphabet:
+    elif not guess_word.isalpha():
       print("That is not a letter in the alphabet!")
       sleep(2)
       continue
