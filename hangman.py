@@ -65,6 +65,7 @@ def main():
   man = ["______\n\n\n\n\n", "______\n  | \|\n\n\n\n", "______\n  | \|\n     |\n\n\n", "______\n  | \|\n     |\n     |\n\n", "______\n  | \|\n     |\n     |\n     |\n", "______\n  | \|\n     |\n     |\n     |\n======", "______\n  | \|\n  O  |\n     |\n     |\n======", "______\n  | \|\n  O  |\n  |  |\n     |\n======", "______\n  | \|\n  O  |\n /|  |\n     |\n======", "______\n  | \|\n  O  |\n /|\ |\n     |\n======", "______\n  | \|\n  O  |\n /|\ |\n /   |\n======", "______\n  | \|\n  O  |\n /|\ |\n / \ |\n======"]
 
   wrong = 0
+  tries = 1
   
   guess_word = guess(man[wrong], print_word, word, letters_chosen)
   print_word, wrong, letters_chosen = check_guess(guess_word, word, print_word, wrong, letters_chosen)
@@ -73,12 +74,17 @@ def main():
     if wrong+1 == len(man):
       break
     guess_word = guess(man[wrong], print_word, word, letters_chosen)
+    tries += 1
     print_word, wrong, letters_chosen = check_guess(guess_word, word, print_word, wrong, letters_chosen)
   print_screen(man[wrong], word, letters_chosen)
   if wrong+1 == len(man):
     print(f"Wrong! The word was {word}")
   else:
-    print(f"Correct! It took you {wrong+1} tries")
+    if tries == 1:
+      try_word = "try"
+    else:
+      try_word = "tries"
+    print(f"Correct! It took you {tries} {try_word}")
 
 if __name__ == "__main__":
     if name == "posix":
