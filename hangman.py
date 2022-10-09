@@ -10,6 +10,7 @@ def print_screen(man, word, letters_chosen, words_chosen):
   for i in range(len(words_chosen)):
     for j in range(len(words_chosen[i])):
       print_words_chosen += words_chosen[i][j]
+    print_words_chosen += " "
   for i in range(len(letters_chosen)):
     print_letters_chosen += f"{letters_chosen[i]} "
   system(clear)
@@ -27,7 +28,7 @@ def guess(man, print_word, word, letters_chosen, words_chosen):
   while True:
     print_screen(man, print_word, letters_chosen, words_chosen)
     guess_word = input().lower()
-    if len(guess_word) == len(word):
+    if len(guess_word) == len(word) and guess_word not in words_chosen:
       break
     elif len(guess_word) != 1:
       print("Try a word that's the same length as this one")
