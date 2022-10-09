@@ -69,7 +69,9 @@ def check_guess(guess_word, word, print_word, wrong, letters_chosen, words_chose
   return print_word, wrong, letters_chosen, words_chosen
 
 def main():
-  word = choice(list(english_words_lower_alpha_set))
+  word = "1"
+  while not word.isalpha():
+    word = choice(list(english_words_lower_alpha_set))
   letters_chosen = []
   print_word = []
   words_chosen = []
